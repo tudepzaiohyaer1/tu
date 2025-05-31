@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chúc mừng 1/6</title>
+  <style>
+    /* Nền trái tim lung linh */
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #ff5f7e, #ff3366);
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      position: relative;
+    }
+
+    /* Trái tim lớn lung linh */
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 270px;
+      background: radial-gradient(circle at center, #ff4d6d, #b8002d);
+      clip-path: polygon(
+        50% 15%, 61% 10%, 75% 20%, 85% 40%, 85% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 40%, 25% 20%, 39% 10%
+      );
+      filter: drop-shadow(0 0 10px #ff6699) drop-shadow(0 0 15px #ff3366);
+      transform: translate(-50%, -50%);
+      animation: pulse 3s infinite ease-in-out;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        filter: drop-shadow(0 0 10px #ff6699) drop-shadow(0 0 15px #ff3366);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 20px #ff99bb) drop-shadow(0 0 30px #ff6699);
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+    }
+
+    /* Container chứa chữ chạy 6 lớp */
+    .text-layers {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Mỗi lớp chữ */
+    .text-layer {
+      position: absolute;
+      left: 50%;
+      white-space: nowrap;
+      font-weight: bold;
+      font-size: 24px;
+      text-shadow: 0 0 5px #000;
+      opacity: 0.8;
+      animation-name: scrollDown;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      transform: translateX(-50%);
+    }
+
+    /* Tạo 6 lớp chữ với màu sắc và tốc độ khác nhau */
+    .text-layer:nth-child(1) {
+      top: -50px;
+      color: #ffd1dc;
+      animation-duration: 12s;
+    }
+    .text-layer:nth-child(2) {
+      top: -100px;
+      color: #ff8aa2;
+      animation-duration: 14s;
+    }
+    .text-layer:nth-child(3) {
+      top: -150px;
+      color: #ff5c7a;
+      animation-duration: 16s;
+    }
+    .text-layer:nth-child(4) {
+      top: -200px;
+      color: #ff3366;
+      animation-duration: 18s;
+    }
+    .text-layer:nth-child(5) {
+      top: -250px;
+      color: #cc2950;
+      animation-duration: 20s;
+    }
+    .text-layer:nth-child(6) {
+      top: -300px;
+      color: #a6223f;
+      animation-duration: 22s;
+    }
+
+    @keyframes scrollDown {
+      0% {
+        top: -50px;
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        top: 110vh;
+        opacity: 1;
+      }
+      100% {
+        top: 110vh;
+        opacity: 0;
+      }
+    }
+
+    /* Ảnh chạy từ trên xuống */
+    .image-container {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      left: calc(50% - 40px);
+      top: -100px;
+      z-index: 5;
+      animation-name: imageDown;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-duration: 10s;
+      filter: drop-shadow(0 0 5px #ff3366);
+    }
+
+    @keyframes imageDown {
+      0% {
+        top: -100px;
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        top: 110vh;
+        opacity: 1;
+        transform: scale(1);
+      }
+      100% {
+        top: 110vh;
+        opacity: 0;
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart"></div>
+
+  <div class="text-layers">
+    <div class="text-layer">mọe chúc con nhóc con 1/6 vui vẻ</div>
+    <div class="text-layer">thôi thì chúc cô gái parky nho nhỏ vô tư nhé</div>
+    <div class="text-layer">1/6 vui vẻ nhé, embe của nhiều thg!</div>
+    <div class="text-layer">chúc em ngày càng đ phải khóc!</div>
+    <div class="text-layer">lêu lêu đồ ế -)))!</div>
+    <div class="text-layer">cảm ơn m vì đến bên t</div>
+    <div class="text-layer">chúc cô bé sau yêu thg khác bớt quấy</div>
+    <div class="text-layer">mong em luôn được yêu thương và che chở!</div>
+    <div class="text-layer">hôm nay m là tâm điểm vũ trụ luôn nha!</div>
+    <div class="text-layer">trẻ con thì được chiều, nên t sẽ chiều em cả ngày!</div>
+    <div class="text-layer">chúc bé ngoan có ngày 1/6 siêu dễ thương!</div>
+    <div class="text-layer">em là lý do khiến khiến a có độc lực sống</div>
+    <div class="text-layer">hãy luôn rực rỡ như những vì sao trên trời nhé!</div>
+    <div class="text-layer">thiếu nhi bé bỏng nhưng chiếm trọn tim nhiều thg -)))</div>
+    <div class="text-layer">mãi là em bé đáng yêu nhất quả đất!</div>
+    <div class="text-layer">hôm nay là ngày của e, cười lên nào!</div>
+    <div class="text-layer">yêu thg nào thì bắt nó phải chiều e nhé -))))</div>
+  </div>
+
+  <!-- Ảnh chạy, bạn có thể thay URL bằng ảnh bạn thích -->
+  <img src="https://media.discordapp.net/attachments/1378513296872968316/1378513387725787137/em1.png?ex=683ce023&is=683b8ea3&hm=f8eef13d9ada9602386202b56b3b66e2888150d7d42bc5a1e3cb0efe28b01200&=&format=webp&quality=lossless&width=981&height=552" alt="Heart Icon" class="image-container" style="animation-delay: 0s;">
+  <img src="https://media.discordapp.net/attachments/1378513296872968316/1378513388002607164/em2.png?ex=683ce023&is=683b8ea3&hm=ab2bbea578c3118a8be8b50c4b9c6bbe115328301d221a4c1d528547138643cb&=&format=webp&quality=lossless&width=414&height=552" alt="Heart Icon" class="image-container" style="animation-delay: 3s; left: 40%;">
+  <img src="https://media.discordapp.net/attachments/1378513296872968316/1378513388279435406/em3.png?ex=683ce023&is=683b8ea3&hm=9950d808c413c977feebeee492aeca249138c24d0538e1e158aa98f7a9ef2862&=&format=webp&quality=lossless&width=414&height=552" alt="Heart Icon" class="image-container" style="animation-delay: 6s; left: 60%;">
+
+</body>
+</html>
