@@ -1,188 +1,213 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chúc mừng 1/6</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc mừng 1/6 cho ny iu ❤️</title>
   <style>
-    /* Nền trái tim lung linh */
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
     body {
       margin: 0;
-      height: 100vh;
-      background: radial-gradient(circle at center, #ff5f7e, #ff3366);
+      padding: 0;
+      background-color: #000000;
       overflow: hidden;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
+      font-family: 'Quicksand', sans-serif;
+      perspective: 1000px;
       position: relative;
     }
 
-    /* Trái tim lớn lung linh */
-    .heart {
+    /* Trái tim mờ nền */
+    body::before {
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 300px;
-      height: 270px;
-      background: radial-gradient(circle at center, #ff4d6d, #b8002d);
+      width: 600px;
+      height: 540px;
+      background: radial-gradient(circle at 30% 30%, #ff5c93aa, transparent 70%);
       clip-path: polygon(
-        50% 15%, 61% 10%, 75% 20%, 85% 40%, 85% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 40%, 25% 20%, 39% 10%
+        50% 15%, 61% 10%, 75% 20%, 85% 40%, 85% 60%, 75% 85%, 
+        50% 100%, 25% 85%, 15% 60%, 15% 40%, 25% 20%, 39% 10%
       );
-      filter: drop-shadow(0 0 10px #ff6699) drop-shadow(0 0 15px #ff3366);
       transform: translate(-50%, -50%);
-      animation: pulse 3s infinite ease-in-out;
-      z-index: 1;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        filter: drop-shadow(0 0 10px #ff6699) drop-shadow(0 0 15px #ff3366);
-        transform: translate(-50%, -50%) scale(1);
-      }
-      50% {
-        filter: drop-shadow(0 0 20px #ff99bb) drop-shadow(0 0 30px #ff6699);
-        transform: translate(-50%, -50%) scale(1.05);
-      }
-    }
-
-    /* Container chứa chữ chạy 6 lớp */
-    .text-layers {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      z-index: 10;
+      opacity: 0.08;
+      z-index: 0;
+      animation: glowHeart 8s ease-in-out infinite;
       pointer-events: none;
     }
 
-    /* Mỗi lớp chữ */
-    .text-layer {
+    @keyframes glowHeart {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.08;
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 0.13;
+      }
+    }
+
+    .layer {
       position: absolute;
-      left: 50%;
+      font-size: 22px;
+      font-weight: 500;
+      color: #fdfdfd;
+      text-shadow: 0 0 10px #ffbbff;
       white-space: nowrap;
-      font-weight: bold;
-      font-size: 24px;
-      text-shadow: 0 0 5px #000;
-      opacity: 0.8;
-      animation-name: scrollDown;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      transform: translateX(-50%);
+      transform-style: preserve-3d;
+      animation: drop3D 15s linear infinite;
+      z-index: 2;
     }
 
-    /* Tạo 6 lớp chữ với màu sắc và tốc độ khác nhau */
-    .text-layer:nth-child(1) {
-      top: -50px;
-      color: #ffd1dc;
-      animation-duration: 12s;
-    }
-    .text-layer:nth-child(2) {
-      top: -100px;
-      color: #ff8aa2;
-      animation-duration: 14s;
-    }
-    .text-layer:nth-child(3) {
-      top: -150px;
-      color: #ff5c7a;
-      animation-duration: 16s;
-    }
-    .text-layer:nth-child(4) {
-      top: -200px;
-      color: #ff3366;
-      animation-duration: 18s;
-    }
-    .text-layer:nth-child(5) {
-      top: -250px;
-      color: #cc2950;
-      animation-duration: 20s;
-    }
-    .text-layer:nth-child(6) {
-      top: -300px;
-      color: #a6223f;
-      animation-duration: 22s;
-    }
-
-    @keyframes scrollDown {
+    @keyframes drop3D {
       0% {
-        top: -50px;
+        transform: translateY(-100px) translateZ(200px);
         opacity: 0;
       }
       10% {
         opacity: 1;
       }
       90% {
-        top: 110vh;
         opacity: 1;
       }
       100% {
-        top: 110vh;
+        transform: translateY(110vh) translateZ(-300px);
         opacity: 0;
       }
     }
 
-    /* Ảnh chạy từ trên xuống */
-    .image-container {
+    .photo {
       position: absolute;
-      width: 80px;
-      height: 80px;
-      left: calc(50% - 40px);
-      top: -100px;
-      z-index: 5;
-      animation-name: imageDown;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      animation-duration: 10s;
-      filter: drop-shadow(0 0 5px #ff3366);
+      bottom: 40px;
+      width: 200px;
+      height: 260px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 25px 8px #ff66cc;
+      animation: floatPhoto 4s ease-in-out infinite;
+      transform-style: preserve-3d;
+      z-index: 3;
     }
 
-    @keyframes imageDown {
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes floatPhoto {
+      0%, 100% {
+        transform: translateY(0px) rotateX(10deg) translateZ(300px);
+      }
+      50% {
+        transform: translateY(-15px) rotateX(10deg) translateZ(300px);
+      }
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: star-fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes star-fall {
       0% {
-        top: -100px;
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      10% {
+        transform: translateY(-100px) translateX(0);
         opacity: 1;
-      }
-      90% {
-        top: 110vh;
-        opacity: 1;
-        transform: scale(1);
       }
       100% {
-        top: 110vh;
+        transform: translateY(100vh) translateX(50vw);
         opacity: 0;
-        transform: scale(1.1);
       }
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="heart"></div>
 
-  <div class="text-layers">
-    <div class="text-layer">mọe chúc con nhóc con 1/6 vui vẻ</div>
-    <div class="text-layer">thôi thì chúc cô gái parky nho nhỏ vô tư nhé</div>
-    <div class="text-layer">1/6 vui vẻ nhé, embe của nhiều thg!</div>
-    <div class="text-layer">chúc em ngày càng đ phải khóc!</div>
-    <div class="text-layer">lêu lêu đồ ế -)))!</div>
-    <div class="text-layer">cảm ơn m vì đến bên t</div>
-    <div class="text-layer">chúc cô bé sau yêu thg khác bớt quấy</div>
-    <div class="text-layer">mong em luôn được yêu thương và che chở!</div>
-    <div class="text-layer">hôm nay m là tâm điểm vũ trụ luôn nha!</div>
-    <div class="text-layer">trẻ con thì được chiều, nên t sẽ chiều em cả ngày!</div>
-    <div class="text-layer">chúc bé ngoan có ngày 1/6 siêu dễ thương!</div>
-    <div class="text-layer">em là lý do khiến khiến a có độc lực sống</div>
-    <div class="text-layer">hãy luôn rực rỡ như những vì sao trên trời nhé!</div>
-    <div class="text-layer">thiếu nhi bé bỏng nhưng chiếm trọn tim nhiều thg -)))</div>
-    <div class="text-layer">mãi là em bé đáng yêu nhất quả đất!</div>
-    <div class="text-layer">hôm nay là ngày của e, cười lên nào!</div>
-    <div class="text-layer">yêu thg nào thì bắt nó phải chiều e nhé -))))</div>
-  </div>
+<!-- Nhạc nền -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6e7391c3b5.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Ảnh chạy, bạn có thể thay URL bằng ảnh bạn thích -->
-  <img src="https://media.discordapp.net/attachments/1378513296872968316/1378513387725787137/em1.png?ex=683ce023&is=683b8ea3&hm=f8eef13d9ada9602386202b56b3b66e2888150d7d42bc5a1e3cb0efe28b01200&=&format=webp&quality=lossless&width=981&height=552" alt="Heart Icon" class="image-container" style="animation-delay: 0s;">
-  <img src="https://media.discordapp.net/attachments/1378513296872968316/1378513388002607164/em2.png?ex=683ce023&is=683b8ea3&hm=ab2bbea578c3118a8be8b50c4b9c6bbe115328301d221a4c1d528547138643cb&=&format=webp&quality=lossless&width=414&height=552" alt="Heart Icon" class="image-container" style="animation-delay: 3s; left: 40%;">
-  <img src="https://media.discordapp.net/attachments/1378513296872968316/1378513388279435406/em3.png?ex=683ce023&is=683b8ea3&hm=9950d808c413c977feebeee492aeca249138c24d0538e1e158aa98f7a9ef2862&=&format=webp&quality=lossless&width=414&height=552" alt="Heart Icon" class="image-container" style="animation-delay: 6s; left: 60%;">
+<script>
+  // Sao rơi
+  for (let i = 0; i < 80; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.width = star.style.height = Math.random() * 2 + 1 + 'px';
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.top = Math.random() * -100 + 'px';
+    star.style.animationDuration = 4 + Math.random() * 4 + 's';
+    star.style.animationDelay = Math.random() * 5 + 's';
+    document.body.appendChild(star);
+  }
+
+  // Lời chúc rơi
+  const wishes = [
+    "mọe chúc con nhóc con 1/6 vui vẻ",
+    "thôi thì chúc cô gái parky nho nhỏ vô tư nhé",
+    "1/6 vui vẻ nhé, embe của nhiều thg!",
+    "chúc em ngày càng đ phải khóc!",
+    "lêu lêu đồ ế -)))!",
+    "cảm ơn m vì đến bên t",
+    "chúc cô bé sau yêu thg khác bớt quấy",
+    "mong em luôn được yêu thương và che chở!",
+    "hôm nay m là tâm điểm vũ trụ luôn nha!",
+    "trẻ con thì được chiều, nên t sẽ chiều em cả ngày!",
+    "chúc bé ngoan có ngày 1/6 siêu dễ thương!",
+    "em là lý do khiến khiến a có độc lực sống",
+    "hãy luôn rực rỡ như những vì sao trên trời nhé!",
+    "thiếu nhi bé bỏng nhưng chiếm trọn tim nhiều thg -)))",
+    "mãi là em bé đáng yêu nhất quả đất!",
+    "hôm nay là ngày của e, cười lên nào!",
+    "yêu thg nào thì bắt nó phải chiều e nhé -))"
+  ];
+
+  function randomNonOverlapPositions(count) {
+    const positions = [];
+    while (positions.length < count) {
+      const top = Math.random() * 80;
+      const left = Math.random() * 80;
+      if (!positions.some(pos => Math.abs(pos.top - top) < 8 && Math.abs(pos.left - left) < 15)) {
+        positions.push({ top, left });
+      }
+    }
+    return positions;
+  }
+
+  const positions = randomNonOverlapPositions(wishes.length);
+
+  wishes.forEach((text, i) => {
+    const msg = document.createElement('div');
+    msg.className = 'layer';
+    msg.style.top = `${positions[i].top}vh`;
+    msg.style.left = `${positions[i].left}vw`;
+    msg.style.animationDelay = `${i * 1.5}s`;
+    msg.textContent = text;
+    document.body.appendChild(msg);
+  });
+</script>
+
+<!-- Các ảnh người yêu - THAY LINK ẢNH SAU -->
+<div class="photo" style="left: 25%; animation-delay: 0s;">
+  <img src="https://media.discordapp.net/attachments/1378513296872968316/1378513387725787137/em1.png?ex=683ce023&is=683b8ea3&hm=f8eef13d9ada9602386202b56b3b66e2888150d7d42bc5a1e3cb0efe28b01200&=&format=webp&quality=lossless&width=966&height=543" alt="Ny 1">
+</div>
+
+<div class="photo" style="left: 50%; animation-delay: 1.5s;">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAgCAYAAAD5VeO1AAAMRklEQVR4AQBdAKL/AJyKmv+bipr/m4qa/5qLm/+ai5z/mYyd/5iMn/+XjaD/lo6h/5aOo/+Vj6T/lZCl/5SRpv+Ukqb/lJOn/5SUp/+UlKf/lZWn/5WWp/+Vlqf/lZen/5aXpv+Wl6b/AF0Aov8AnIqZ/5yKmf+bi5r/m4ub/5qLnP+ZjJ3/mIye/5iNoP+XjqH/lo6i/5WPo/+VkKT/lZGl/5SSpv+Uk6b/lZSm/5WVpv+Vlab/lZam/5aWpv+Wl6b/lpem/5aXpv8AXQCi/wCdipj/nYuZ/5yLmf+ci5r/m4ub/5qMnP+ZjJ7/mI2f/5iOoP+Xj6H/lpCj/5aQo/+WkaT/lZKl/5WTpf+VlKb/lpWm/5aWpv+Wlqb/l5el/5eXpf+Xl6X/l5il/wBdAKL/AJ6Ll/+ei5f/nYuY/52Lmf+cjJr/m4yb/5qNnP+ZjZ7/mY6f/5iPoP+XkKH/l5Gi/5eSo/+Xk6T/l5Sk/5eUpP+XlaX/l5al/5iXpP+Yl6T/mJik/5mYpP+ZmKT/AF0Aov8An4uW/5+Llv+ei5b/noyX/52MmP+cjJn/nI2b/5uOnP+aj53/mo+f/5mQoP+ZkaH/mJKi/5iTov+YlKP/mZWj/5mWo/+Zl6P/mpej/5qYo/+amKP/mpmj/5uZo/8AXQCi/wCgi5T/oIuU/6CMlf+fjJX/n4yX/56NmP+djZn/nY6a/5yPnP+bkJ3/m5Ge/5uSn/+ak6D/mpSh/5qVof+blqH/m5eh/5uXof+cmKH/nJmh/5yZof+dmaH/nZqh/wBdAKL/AKKMkv+ijJL/ooyT/6GMlP+hjZX/oI2W/5+Ol/+ej5j/npCa/52Qm/+dkZz/nZKd/5yTnv+dlZ//nZaf/52Xn/+dl5//npif/56Zn/+fmp//n5qf/5+an/+fm5//AF0Aov8ApIyQ/6SMkP+jjJH/o42R/6KNkv+ijpT/oY6V/6CPlv+gkJj/n5GZ/5+Smv+fk5v/n5Sc/5+Vnf+flp3/oJed/6CYnf+gmZ3/oZqd/6Gbnf+im53/opud/6Kcnf8AXQCi/wCmjI7/pYyO/6WNjv+ljY//pI6Q/6SOkv+jj5P/opCU/6KRlv+ikpf/oZOY/6GUmf+hlZr/oZab/6KXm/+imJv/o5mb/6OanP+km5v/pJyb/6Wcm/+lnZv/pZ2b/wBdAKL/AKeNjP+njYz/p42M/6aNjf+mjo7/pY+Q/6WPkf+kkJL/pJGU/6SSlf+jlJb/o5WX/6SWmP+kl5n/pJiZ/6WZmf+lmpr/ppua/6acmv+nnZn/p52Z/6iemf+onpn/AF0Aov8AqY2K/6mNiv+ojYv/qI6L/6iOjP+nj47/p5CP/6aRkP+mkpL/ppOT/6aUlP+mlpX/ppeW/6aYl/+nmZf/p5qY/6icmP+pnJj/qZ2Y/6qemP+qn5j/q5+Y/6ufl/8AXQCi/wCqjYj/qo6I/6qOif+pjor/qY+L/6mQjP+okY3/qJKP/6iTkP+nlJH/p5WT/6iWlP+omJX/qJmV/6malv+qm5b/qp2W/6uelv+sn5b/rJ+W/62glv+toJb/rqCW/wBdAKL/AKuOh/+rjof/q46I/6qPiP+qj4n/qpCL/6mRjP+pko3/qZOP/6mVkP+plpH/qZeS/6qZk/+qmpT/q5uV/6ydlf+tnpX/rp+V/66glf+voZX/sKGV/7Cilf+wopX/AF0Aov8ArI6G/6yOhv+rj4f/q4+H/6uQif+rkYr/qpKL/6qTjf+qlI7/qpWP/6uXkP+rmJL/q5mS/6ybk/+tnJT/rp6U/6+flP+woJT/sKGU/7GilP+yopT/sqOU/7KjlP8AXQCi/wCsjoX/rI6F/6yPhv+sj4f/q5CI/6uRif+rkov/q5OM/6uUjf+rlo//rJeQ/6yZkf+tmpL/rZyT/66dk/+vn5T/sKCU/7GhlP+yopT/s6OU/7SklP+0pJT/tKSU/wBdAKL/AKyOhf+sj4X/rI+G/6yQh/+skIj/q5GJ/6uSiv+rlIz/rJWN/6yWj/+smJD/rZmR/66bkv+unZP/r56T/7GglP+yoZT/s6KU/7SjlP+1pJT/taWU/7allP+2ppT/AF0Aov8ArI+F/6yPhv+rj4b/q5CH/6uRiP+rkon/q5OL/6uUjP+slY7/rJeP/62ZkP+tmpH/rpyS/6+dk/+wn5T/saGU/7OilP+0o5T/taSU/7allP+2ppT/t6eU/7enlP8AXQCi/wCrj4b/q4+G/6uPh/+rkIj/q5GJ/6uSiv+rk4z/q5SN/6uWj/+sl5D/rJmR/62bkv+unJP/r56U/7Cglf+yopX/s6OV/7Sklf+1ppX/tqaV/7enlf+4qJX/uKiV/wBdAKL/AKqPh/+qj4j/qo+I/6qQif+qkYr/qpKL/6qTjf+qlY7/q5aQ/6uYkf+smpL/rZuU/66dlf+vn5X/sKGW/7Kilv+zpJf/tKWX/7aml/+3p5f/t6iX/7ipl/+4qZb/AF0Aov8AqI+J/6iPif+oj4r/qJCL/6iRjP+oko3/qZOO/6mVkP+plpH/qpiT/6ualP+snJX/rZ6W/6+gl/+woZj/saOY/7OlmP+0ppj/taeY/7eomP+3qZj/uKqY/7iqmP8AXQCi/wCmj4v/po+L/6aPjP+mkI3/ppGO/6eSj/+nk5D/p5WS/6iXk/+pmJX/qpqW/6ucl/+snpj/rqCZ/6+imv+xpJr/sqWa/7Snmv+1qJv/tqmb/7eqmv+4q5r/uKua/wBdAKL/AKSOjf+kj43/pI+O/6SQj/+kkZD/pZKR/6WUk/+mlZT/ppeW/6eZl/+om5j/qp2a/6ufm/+soZv/rqKc/7CknP+xpp3/s6id/7Spnf+1qp3/tqud/7ernf+3rJ3/AF0Aov8Aoo6P/6KPkP+ij5D/opCR/6KRkv+jkpT/o5SV/6SVl/+ll5j/ppma/6ebm/+onZz/qZ+d/6uhnv+to57/r6Wf/7Cnn/+yqJ//s6qf/7Srn/+1rJ//tqyf/7atn/8AXQCi/wCfjpL/oI6S/6CPk/+gkJT/oJGV/6CSlv+hk5j/opWZ/6OXm/+kmZz/pZud/6adn/+on6D/qqGg/6ujof+tpaL/r6ei/7Gpov+yqqL/s6ui/7Ssov+1raL/ta2i/wBdAKL/AJ2OlP+djpX/nY+V/56Qlv+ekZf/npKZ/5+Tmv+glZz/oZed/6KZn/+jm6D/pZ2h/6afov+ooqP/qqSk/6ympP+tqKX/r6ml/7Grpf+yrKX/s62l/7Stpf+0rqX/AF0Aov8Am46X/5uOl/+bj5j/m4+Z/5yRmv+ckpv/nZOd/56Vnv+fl6D/oJmh/6Gbo/+jnaT/pKCl/6aipv+opKb/qqan/6yop/+uqqf/r6un/7Gsp/+yraf/s66n/7Oup/8AXQCi/wCZjpn/mY6a/5mOmv+Zj5v/mpCc/5qSnv+bk5//nJWh/52Xov+emaT/n5ul/6Gdpv+joKf/paKo/6ekqf+ppqn/q6iq/62qqv+uq6r/sK2q/7Guqv+xrqr/sq+q/wBdAKL/AJeNm/+Xjpz/l46c/5ePnf+YkJ7/mJKg/5mTof+alaP/m5ek/5yZpv+em6f/oJ6o/6Ggqf+joqr/paSr/6emq/+pqKz/q6qs/62srP+uraz/r66s/7CvrP+xr6z/AF0Aov8AlY2d/5WOnf+Vjp7/lo+f/5aQoP+XkqH/mJOj/5mVpP+al6b/m5mo/52bqf+enqr/oKCr/6KirP+kpK3/pqet/6iprf+qqq7/rKyu/62trv+urq7/r6+u/7Cvrv8AXQCi/wCUjZ7/lI2f/5SOn/+Vj6D/lZCi/5aRo/+Wk6T/l5Wm/5mXp/+aman/nJuq/52erP+foK3/oaKt/6Olrv+lp6//p6mv/6mqr/+rrK//ra2v/66ur/+ur6//r6+v/wBdAKL/AJONn/+TjaD/k46g/5SPof+UkKL/lZGk/5aTpf+Xlaf/mJeo/5mZqv+bm6v/nZ6s/5+grv+hoq7/o6Wv/6WnsP+nqbD/qauw/6ussP+srbD/ra6w/66vsP+ur7D/AV0Aov8Ak42g/5ONoP+TjqH/k4+i/5SQo/+UkaT/lZOm/5aVp/+Xl6n/mZmq/5qbrP+cnq3/nqCu/6Cir/+ipbD/pKew/6epsP+oq7H/qqyx/6yusf+tr7H/rq+x/66wsf92rCq8xw7DXgAAAABJRU5ErkJggg==" alt="Ny 2">
+</div>
+
+<div class="photo" style="left: 75%; animation-delay: 3s;">
+  <img src="https://media.discordapp.net/attachments/1378513296872968316/1378513388279435406/em3.png?ex=683ce023&is=683b8ea3&hm=9950d808c413c977feebeee492aeca249138c24d0538e1e158aa98f7a9ef2862&=&format=webp&quality=lossless&width=408&height=544" alt="Ny 3">
+</div>
 
 </body>
 </html>
